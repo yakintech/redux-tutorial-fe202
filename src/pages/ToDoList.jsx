@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux'
 
 function ToDoList() {
 
-    let todos = useSelector(state => state);
+    let {todoState} = useSelector(state => state);
 
 
   return (<>
   <ul>
     {
-        todos && todos.map((item) => <li key={item.id}>{item.title}</li>)
+        todoState && todoState.map((item) => <li key={item.id}>{item.title}</li>)
     }
   </ul>
   </>

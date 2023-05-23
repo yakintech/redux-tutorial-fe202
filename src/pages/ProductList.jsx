@@ -6,7 +6,7 @@ function ProductList() {
 
     const [products, setproducts] = useState([]);
 
-    let favorites = useSelector(state => state);
+    let { favoritesState } = useSelector(state => state);
 
 
     let dispatch = useDispatch();
@@ -20,17 +20,17 @@ function ProductList() {
 
 
     const addToFav = (item) => {
-        dispatch({type:'ADD_TO_FAVORITES', payload:item})
+        dispatch({ type: 'ADD_TO_FAVORITES', payload: item })
     }
 
     return (<>
-    <h1>Favorites Length: {favorites.length} </h1>
-    <ul>
-        {
-            products && products.map(item => <li style={{cursor:'pointer'}} onClick={() => addToFav(item)} key={item.id}>{item.name}</li>)
-        }
-    </ul>
-        
+        <h1>Favorites Length: {favoritesState.length} </h1>
+        <ul>
+            {
+                products && products.map(item => <li style={{ cursor: 'pointer' }} onClick={() => addToFav(item)} key={item.id}>{item.name}</li>)
+            }
+        </ul>
+
     </>
     )
 }

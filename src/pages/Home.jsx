@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux'
 
 function Home() {
 
-  const state = useSelector(state => state)
+  const {counterState} = useSelector(state => state)
 
   return (<>
-  <h2>Counter: {state}</h2>
+  <h2>Counter: {counterState}</h2>
   </>)
 }
 

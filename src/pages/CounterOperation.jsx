@@ -8,7 +8,7 @@ function CounterOperation() {
 
     let dispatch = useDispatch();
 
-    let state = useSelector(state => state)
+    let {counterState} = useSelector(state => state)
 
     const increase = () => {
         dispatch({ type: 'INCREASE' })
@@ -28,7 +28,7 @@ function CounterOperation() {
 
     return (<>
         <div>
-            <h1>Counter: {state} </h1>
+            <h1>Counter: {counterState} </h1>
             <button onClick={increase}>Increase</button>
             <button onClick={decrease}>Decrease</button>
 

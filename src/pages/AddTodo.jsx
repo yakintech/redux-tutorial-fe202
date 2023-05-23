@@ -7,7 +7,7 @@ function AddTodo() {
 
     let dispatch = useDispatch();
 
-    let todos = useSelector(state => state)
+    let {todoState} = useSelector(state => state)
 
     const add = () => {
         let newTodoItem = {
@@ -32,7 +32,7 @@ function AddTodo() {
         <div>
             <ul>
                 {
-                    todos && todos.map((item) => <li onClick={() => removeToDo(item.id)} key={item.id}>{item.title}</li>)
+                    todoState && todoState.map((item) => <li onClick={() => removeToDo(item.id)} key={item.id}>{item.title}</li>)
                 }
             </ul>
         </div>
