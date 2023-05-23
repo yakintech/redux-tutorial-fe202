@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+
+</head>
+
+<body>
+    <span>Counter: <span id="counter">0</span></span>
+
+    <div>
+        <button onclick="increase()">Increase</button>
+        <button onclick="decrease()">Decrease</button>
+    </div>
+</body>
+<script>
+
+    function counterReducer(state, action) {
+
+        if (state == undefined)
+            return 0
+        if (action.type == "INCREASE")
+            return state + 1
+        else if (action.type == "DECREASE")
+            return state - 1
+        else
+            return state
+    }
+
+
+    const store = Redux.createStore(counterReducer);
+
+
+    function renderSpan(){
+        document.getElementById('counter').innerHTML = store.getState().toString();
+    }
+
+    store.subscribe(renderSpan);
+
+
+    function increase(){
+        store.dispatch({type:'INCREASE'})
+    }
+
+    function decrease(){
+        store.dispatch({type:'DECREASE'})
+    }
+
+
+</script>
+
+</html>

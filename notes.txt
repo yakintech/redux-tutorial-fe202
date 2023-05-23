@@ -1,0 +1,13 @@
+1) redux ve react-redux paketleri yüklenir
+2) reducer js file yazılır
+3) index.js provider ile sarmallanır ( wrap edilir )
+
+
+
+
+//useDispatch
+bu hook ile reducer a erişim sağlanır ve state değiştirilir!!!
+
+
+//useSelector
+bu hook ile global state deki değer alınır ve ekranda gösterilir!!
