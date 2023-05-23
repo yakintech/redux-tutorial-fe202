@@ -8,9 +8,10 @@ import { createStore } from 'redux';
 import { CounterReducer } from './store/counterReducer';
 import { Provider } from 'react-redux';
 import { todoReducer } from './store/todoReducer';
+import { favoriteReducer } from './store/favoritesReducer';
 
 
-const store = createStore(todoReducer)
+const store = createStore(favoriteReducer)
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
