@@ -10,6 +10,8 @@ import { useDispatch } from 'react-redux'
 import { supplierActions } from './store/actions/supplierAction'
 import Suppliers from './pages/Suppliers'
 import CounterReduxToolKit from './pages/CounterReduxToolKit'
+import TodoListToolKit from './pages/TodoListToolKit'
+import AddTodoToolkit from './pages/AddTodoToolkit'
 
 function App() {
 
@@ -36,6 +38,8 @@ function App() {
       <li><Link to='/favorites'>Favorites</Link></li>
       <li><Link to='/suppliers'>Suppliers</Link></li>
       <li><Link to='/counterreduxtoolkit'>Redux ToolKit</Link></li>
+      <li><Link to='/todolistoolkit'>todolisttoolkit</Link></li>
+      <li><Link to='/addtodotoolkit'>addtodo toolkit</Link></li>
 
     </ul>
   </div>
@@ -49,6 +53,8 @@ function App() {
     <Route path='/todos' element={<ToDoList/>}></Route>
     <Route path='/suppliers' element={<Suppliers/>}></Route> 
     <Route path='/counterreduxtoolkit' element={<CounterReduxToolKit/>}></Route> 
+    <Route path='/todolistoolkit' element={<TodoListToolKit/>}></Route> 
+    <Route path='/addtodotoolkit' element={<AddTodoToolkit/>}></Route> 
 
 
   </Routes>

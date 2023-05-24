@@ -9,13 +9,15 @@ import { rootReducer } from './store/reducers/rootReducer';
 import thunk from 'redux-thunk';
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './store/slices/counterSlice'
+import todoReducer from './store/slices/todoSlice'
 
 // const store = createStore(rootReducer, applyMiddleware(thunk))
 
 
 const store = configureStore({
   reducer:{
-    counterReducer: counterReducer
+    counterReducer: counterReducer,
+    todoReducer: todoReducer
   }
 })
 
