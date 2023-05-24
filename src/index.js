@@ -7,10 +7,17 @@ import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { rootReducer } from './store/reducers/rootReducer';
 import thunk from 'redux-thunk';
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from './store/slices/counterSlice'
+
+// const store = createStore(rootReducer, applyMiddleware(thunk))
 
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
-
+const store = configureStore({
+  reducer:{
+    counterReducer: counterReducer
+  }
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
