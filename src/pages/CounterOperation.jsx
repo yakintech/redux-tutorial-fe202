@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { counterActions } from '../store/actions/counterAction';
 
 function CounterOperation() {
 
@@ -11,19 +12,19 @@ function CounterOperation() {
     let {counterState} = useSelector(state => state)
 
     const increase = () => {
-        dispatch({ type: 'INCREASE' })
+        dispatch(counterActions.increase())
     }
 
     const decrease = () => {
-        dispatch({ type: 'DECREASE' })
+        dispatch(counterActions.decrease())
     }
 
     const increaseByValue = () => {
-        dispatch({type:'INCREASE_BY_VALUE', payload:Number(value)})
+        dispatch(counterActions.increaseByValue(value))
     }
 
     const empty = () => {
-        dispatch({type:'EMPTY'})
+        dispatch(counterActions.empty())
     }
 
     return (<>
@@ -47,3 +48,4 @@ function CounterOperation() {
 }
 
 export default CounterOperation
+

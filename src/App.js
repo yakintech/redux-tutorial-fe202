@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import CounterOperation from './pages/CounterOperation'
@@ -6,18 +6,35 @@ import AddTodo from './pages/AddTodo'
 import ToDoList from './pages/ToDoList'
 import ProductList from './pages/ProductList'
 import Favorites from './pages/Favorites'
+import { useDispatch } from 'react-redux'
+import { supplierActions } from './store/actions/supplierAction'
+import Suppliers from './pages/Suppliers'
 
 function App() {
+
+  let dispatch = useDispatch()
+
+  useEffect(() => {
+    
+      dispatch(supplierActions.load())
+  
+  }, [])
+  
+
+
+
   return (  <>
 
   <div>
-    <ul>
+    <ul style={{display:'flex', justifyContent:'space-between'}}>
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/counter'>Couter</Link></li>
       <li><Link to='/addtodo'>Add Todo</Link></li>
       <li><Link to='/todos'>Todos</Link></li>
       <li><Link to='/products'>Products</Link></li>
       <li><Link to='/favorites'>Favorites</Link></li>
+      <li><Link to='/suppliers'>Suppliers</Link></li>
+
     </ul>
   </div>
   <Routes>
@@ -27,7 +44,9 @@ function App() {
      <Route path='/' element={<Home/>}></Route>
     <Route path='/counter' element={<CounterOperation/>}></Route>
     <Route path='/addtodo' element={<AddTodo/>}></Route>
-    <Route path='/todos' element={<ToDoList/>}></Route> 
+    <Route path='/todos' element={<ToDoList/>}></Route>
+    <Route path='/suppliers' element={<Suppliers/>}></Route> 
+
 
   </Routes>
   </>
