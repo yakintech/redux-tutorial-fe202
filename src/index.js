@@ -10,6 +10,7 @@ import thunk from 'redux-thunk';
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './store/slices/counterSlice'
 import todoReducer from './store/slices/todoSlice'
+import logger from 'redux-logger';
 
 // const store = createStore(rootReducer, applyMiddleware(thunk))
 
@@ -19,7 +20,7 @@ const store = configureStore({
     counterReducer: counterReducer,
     todoReducer: todoReducer
   }
-})
+}, applyMiddleware(logger))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
