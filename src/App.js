@@ -12,6 +12,9 @@ import Suppliers from './pages/Suppliers'
 import CounterReduxToolKit from './pages/CounterReduxToolKit'
 import TodoListToolKit from './pages/TodoListToolKit'
 import AddTodoToolkit from './pages/AddTodoToolkit'
+import Orders from './pages/Orders'
+import OrdersReport from './pages/OrdersReport'
+import { getOrders } from './store/slices/orderSlice'
 
 function App() {
 
@@ -20,6 +23,7 @@ function App() {
   useEffect(() => {
     
       dispatch(supplierActions.load())
+      dispatch(getOrders())
   
   }, [])
   
@@ -40,6 +44,8 @@ function App() {
       <li><Link to='/counterreduxtoolkit'>Redux ToolKit</Link></li>
       <li><Link to='/todolistoolkit'>todolisttoolkit</Link></li>
       <li><Link to='/addtodotoolkit'>addtodo toolkit</Link></li>
+      <li><Link to='/orders'>Orders</Link></li>
+      <li><Link to='/ordersreport'>Orders Report</Link></li>
 
     </ul>
   </div>
@@ -55,6 +61,8 @@ function App() {
     <Route path='/counterreduxtoolkit' element={<CounterReduxToolKit/>}></Route> 
     <Route path='/todolistoolkit' element={<TodoListToolKit/>}></Route> 
     <Route path='/addtodotoolkit' element={<AddTodoToolkit/>}></Route> 
+    <Route path='/orders' element={<Orders/>}></Route> 
+    <Route path='/ordersreport' element={<OrdersReport/>}></Route> 
 
 
   </Routes>
